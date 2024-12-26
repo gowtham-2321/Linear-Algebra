@@ -388,11 +388,42 @@ dot_prod = 0
 for i, j in zip(lst,lst2):
    dot_prod = dot_prod +  i*j
 print("the product of the given row vector and the column vector is :", dot_prod)      <------ this is wrong
+
+
 '''
+#n X m matrix
+'''
+n1 = int(input("enter the size of n in the matrix: "))
+m1 = int(input("enter the size of m in the matrix: "))
+
+matrix1 =[]
+
+for i in range(n1):
+    row = input("Enter the values of the row, seperated by a comma ({} values): ".format(m1))
+    lst = row.split(",")
+    numlst =[]
+    for i in lst:
+        numlst.append(int(i))
+    matrix1.append(numlst)
+
+n2 = 1
+m2 = n1
+
+matrix2 =[]
+
+for i in range(n2):
+    row = input("Enter the values of the row, seperated by a comma ({} values): ".format(m2))
+    lst = row.split(",")
+    numlst =[]
+    for i in lst:
+        numlst.append(int(i))
+    matrix1.append(numlst)'''
+
 
 
 
 #Generate a program to calculate the matrix-vector product of a singular matrix and a vector.
+
 
 
 #Create a program that computes the product of a matrix containing all negative integers with a positive vector.
@@ -433,10 +464,11 @@ else:
 '''
 
 #Write a Python program to multiply a lower triangular matrix with a vector, both provided as input by the user.
-
+'''
 print("matrix size - n X n")
 n = int(input("enter the size of n in the matrix: "))
 matrix =[]
+
 
 for i in range(n):
     row = input("Enter the values of the row, seperated by a comma ({} values): ".format(n))
@@ -445,6 +477,35 @@ for i in range(n):
     for i in lst:
         numlst.append(int(i))
     matrix.append(numlst)
+
+for i in range(n):
+    for j in range(n):
+        if j>i and matrix[i][j] != 0:
+            print("the matrix is not lower triangle matrix")
+            exit()
+
+vec = []
+for i in range(n):
+    a = int(input("Enter value {}: ".format(i+1)))
+    vec.append(a)
+
+product_lst = []
+for i in matrix:
+    dot_prod = 0
+    for j, k in zip(i,vec):
+        dot_prod = dot_prod +  j*k
+    product_lst.append(dot_prod)  
+
+print(product_lst)
+'''
+
+
+
+
+
+
+
+
     
 
 
