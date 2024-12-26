@@ -387,8 +387,10 @@ for i in range(1,4):
 dot_prod = 0
 for i, j in zip(lst,lst2):
    dot_prod = dot_prod +  i*j
-print("the product of the given row vector and the column vector is :", dot_prod)
+print("the product of the given row vector and the column vector is :", dot_prod)      <------ this is wrong
 '''
+
+
 
 #Generate a program to calculate the matrix-vector product of a singular matrix and a vector.
 
@@ -443,5 +445,8 @@ for i in range(n):
     for i in lst:
         numlst.append(int(i))
     matrix.append(numlst)
+    
+
+
 
 
