@@ -13,17 +13,30 @@ for i in range(n):
         numlst.append(int(i))
     matrix.append(numlst) 
 
+    
+
 for i in range(n):
-    num = matrix[i][i]
+    num = matrix[0][0]
     if(i+1)== n:
         break
-    mul = matrix[i+1][i]
+    mul = matrix[i+1][0]
     for j in range(n):
-        matrix[i][j] = matrix[i][j]/num
-        if(i+1)== n:
-            break
-        matrix[i+1][j] = matrix[i+1][j] - mul* matrix[i][j]
-    
+        matrix[0][j] = matrix[0][j]/num
+        matrix[i+1][j] = matrix[i+1][j] - mul* matrix[0][j]
+        print(matrix)
+    print("end of first time fixing row")
+
+for i in range(1,n):
+    num = matrix[1][1]
+    if(i+1)== n:
+        break
+    mul = matrix[i+1][1]
+    for j in range(n):
+        matrix[1][j] = matrix[1][j]/num
+        matrix[i+1][j] = matrix[i+1][j] - mul* matrix[1][j]
+        print(matrix)
+    print("end of first time fixing row")
+ 
     
     
 
