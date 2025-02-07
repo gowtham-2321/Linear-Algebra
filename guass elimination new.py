@@ -59,6 +59,45 @@ def solution(matrix): #this solution function works only for the 3*3 matrix, doe
     x = (matrix[0][3] - z*matrix[0][2] - y*matrix[0][1])/matrix[0][0]
     return x,y,z
 
-matrix, swap = guass(get_matrix(matrix))
+
+def matrix_mul(m1,m2,n):
+    matrix = []
+    for i in range(0,n):
+        temprow =[]
+        for j in range(0,n):
+            sum = 0
+            for k in range(0,n):
+                sum = sum + m1[i][k]*m2[k][j]
+            temprow.append(sum)
+        matrix.append(temprow)
+    return matrix
+
+def elimination_iden(elem, matrix): #not working - should make it work
+    swap = 0
+    for i in range(n):   #this for loop is there to swap the rows of the matrix accorindingly in such a way that there is no 0 in the diagonal values
+        if matrix[i][i] == 0:
+            l = matrix.pop(i)
+            matrix.append(l)
+            swap += 1
+            i -= 1
+            continue
+
+    for i in range(n):
+        if matrix[i][i] == 0: #after performing few operations on the row, we should again check is the diagonal values or 0, because due to subtraction the vlues might have become zero, if zero we send that row to the end
+            l = matrix.pop(i)
+            matrix.append(l)
+            swap += 1
+            continue
+        for k in range(i+1,n):
+            mul = matrix[k][i]/matrix[i][i]
+            for j in range(n+1):  # n+1 because tthe last column of the matrix will be the answer for each equation
+                elem[k][j] = elem[k][j] - mul*elem[i][j]
+                matrix = matrix_mul(elem,matrix,n)
+    print(matrix)
+    return matrix, swap
+
+
+elem = [[1,0,0],[0,1,0],[0,0,1]]
+matrix, swap = elimination_iden(elem,get_matrix(matrix))
 
 print(solution(matrix))
