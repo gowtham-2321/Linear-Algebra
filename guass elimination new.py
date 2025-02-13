@@ -72,6 +72,7 @@ def matrix_mul(m1,m2,n):
         matrix.append(temprow)
     return matrix
 
+#doesnt work bro
 def elimination_iden(elem, matrix): #not working - should make it work
     swap = 0
     for i in range(n):   #this for loop is there to swap the rows of the matrix accorindingly in such a way that there is no 0 in the diagonal values
